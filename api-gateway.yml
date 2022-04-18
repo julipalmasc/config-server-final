@@ -29,8 +29,8 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
  
- management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+management:
+ endpoints:
+   web:
+     exposure:
+       include: "*"
