@@ -1,0 +1,24 @@
+server:
+  port : 8097
+  
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+    show-sql: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/parcial
+    username: julipalma
+    password: julipalma
+    
+  sql:
+    init:
+      dataLocations: classpath:/movie-service.sql
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
