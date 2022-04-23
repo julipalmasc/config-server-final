@@ -8,8 +8,9 @@ spring:
         - id: movie-service
           uri: lb://movie-service
           predicates:
-            - Path=/movies/all
             - Path=/movies/**
+          filters:
+            - StripPrefix=1
         - id: catalog-service
           uri: lb://catalog-service
           predicates:
