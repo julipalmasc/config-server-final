@@ -1,32 +1,40 @@
 server:
-  port : 8097
+  port : 8083
+spring:
+  application:
+    name: serie-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: Netflix
+  sleuth:
+    sampler:
+    probability: 1.0
+  zipkin:
+    baseUrl: http://localhost:9411/
+    enabled: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+queue:
+  serie:
+    name: queueSerie  
     
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    hostname: localhost
-    prefer-ip-address: true
-    
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
 management:
   endpoints:
     web:
       exposure:
-        include: info
-  info:
-    env:
-      enabled: true
+        include: health,info
   endpoint:
-    info:
-      enabled: true
-
-info:
-  app:
-    name: ${spring.application.name}
-    version: 1.0.0
-    description: Movie Microservice
-  svc:
-    intanceid: ${eureka.instance.instance-id}
-    port: ${server.port}
-
+    health:
+      show-details: always
