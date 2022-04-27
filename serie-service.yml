@@ -1,5 +1,6 @@
 server:
   port : 8083
+  
 spring:
   application:
     name: serie-service
@@ -11,30 +12,8 @@ spring:
   sleuth:
     sampler:
     probability: 1.0
-  #zipkin:
-    #baseUrl: http://localhost:9411/
-    #enabled: true
-  #rabbitmq:
-   # host: localhost
-    #port: 5672
-    #username: guest
-    #password: guest
 
-queue:
-  serie:
-    name: queueSerie  
-    
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
-    fetch-registry: true
-    register-with-eureka: true
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info
-  endpoint:
-    health:
-      show-details: always
+      defaultZone: http://localhost:8761/eureka/
