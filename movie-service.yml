@@ -25,18 +25,6 @@ eureka:
   instance:
     hostname: localhost
     prefer-ip-address: true
-    
-management:
-  endpoints:
-    web:
-      exposure:
-        include: info
-  info:
-    env:
-      enabled: true
-  endpoint:
-    info:
-      enabled: true
 
 info:
   app:
